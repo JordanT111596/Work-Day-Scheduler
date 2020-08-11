@@ -1,19 +1,10 @@
 //creates array for time
 var timeArr = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+//creates array so we can check the time
 var timeCheckArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 //sets currentDay element to the actual current day using moment.js
 $("#currentDay").text("Today is " + (moment().format("dddd, MMMM Do, YYYY")));
-
-$("#hour9").val(localStorage.getItem("9"));
-$("#hour10").val(localStorage.getItem("10"));
-$("#hour11").val(localStorage.getItem("11"));
-$("#hour12").val(localStorage.getItem("12"));
-$("#hour13").val(localStorage.getItem("13"));
-$("#hour14").val(localStorage.getItem("14"));
-$("#hour15").val(localStorage.getItem("15"));
-$("#hour16").val(localStorage.getItem("16"));
-$("#hour17").val(localStorage.getItem("17"));
 
 //create a loop out of this
 for (var i = 0; i < timeArr.length; i++) {
@@ -77,8 +68,23 @@ for (var i = 0; i < timeArr.length; i++) {
     }
 }
 
+//functionality for save button
 $(".saveBtn").on("click", function () {
+    //grabs text from user input and stores to variable
     var userText = $(this).siblings(".description").val();
+    //grabs time from where user input and stores to variable
     var timeSlot = $(this).siblings(".description").attr("data-time");
+    //sets the variables into local storage so the info can be saved
     localStorage.setItem(timeSlot, userText);
 });
+
+//sets each schedule block with the text last saved from local storage
+$("#hour9").val(localStorage.getItem("9"));
+$("#hour10").val(localStorage.getItem("10"));
+$("#hour11").val(localStorage.getItem("11"));
+$("#hour12").val(localStorage.getItem("12"));
+$("#hour13").val(localStorage.getItem("13"));
+$("#hour14").val(localStorage.getItem("14"));
+$("#hour15").val(localStorage.getItem("15"));
+$("#hour16").val(localStorage.getItem("16"));
+$("#hour17").val(localStorage.getItem("17"));
