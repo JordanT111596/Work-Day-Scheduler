@@ -5,6 +5,16 @@ var timeCheckArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 //sets currentDay element to the actual current day using moment.js
 $("#currentDay").text("Today is " + (moment().format("dddd, MMMM Do, YYYY")));
 
+$("#hour9").val(localStorage.getItem("9"));
+$("#hour10").val(localStorage.getItem("10"));
+$("#hour11").val(localStorage.getItem("11"));
+$("#hour12").val(localStorage.getItem("12"));
+$("#hour13").val(localStorage.getItem("13"));
+$("#hour14").val(localStorage.getItem("14"));
+$("#hour15").val(localStorage.getItem("15"));
+$("#hour16").val(localStorage.getItem("16"));
+$("#hour17").val(localStorage.getItem("17"));
+
 //create a loop out of this
 for (var i = 0; i < timeArr.length; i++) {
 
@@ -30,6 +40,8 @@ for (var i = 0; i < timeArr.length; i++) {
     newTextArea.addClass("description col-md-10");
     //assigns time data attribute
     newTextArea.attr("data-time", timeCheckArr[i]);
+    //assigns id attribute
+    newTextArea.attr("id", "hour" + timeCheckArr[i]);
     //appends textarea to the time block row
     newRow.append(newTextArea);
 
@@ -65,9 +77,8 @@ for (var i = 0; i < timeArr.length; i++) {
     }
 }
 
-$(".saveBtn").on("click", function() {
+$(".saveBtn").on("click", function () {
     var userText = $(this).siblings(".description").val();
     var timeSlot = $(this).siblings(".description").attr("data-time");
-    console.log(userText);
-    console.log(timeSlot);
+    localStorage.setItem(timeSlot, userText);
 });
