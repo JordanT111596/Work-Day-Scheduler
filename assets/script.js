@@ -61,12 +61,12 @@ if (newTextArea.attr("data-time") < parseInt((moment().format("H")))) {
     newTextArea.addClass("past");
 }
 
-//if the time box is at the current time, make it a red present box
-else if (newTextArea.attr("data-time") === parseInt((moment().format("H")))) {
-    newTextArea.addClass("present");
+//if the time is after the current time, make it a green future box
+else if (newTextArea.attr("data-time") > parseInt((moment().format("H")))) {
+    newTextArea.addClass("future");
 }
 
-//if the time is after the current time, make it a green future box
+//if the time box is at the current time, make it a red present box
 else {
     newTextArea.addClass("present");
 }
