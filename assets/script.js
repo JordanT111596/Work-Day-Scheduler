@@ -8,48 +8,41 @@ $("#currentDay").text("Today is " + (moment().format("dddd, MMMM Do, YYYY")));
 //create a loop out of this
 for (var i = 0; i < timeArr.length; i++) {
     
-//creates row
+//creates row for time block
 var newRow = $("<div>");
 //adds css class to row
-newRow.addClass("row");
+newRow.addClass("row time-block");
 //appends row to the container
 $(".container").append(newRow);
 
-//creates column for hour
-var newTimeColumn = $("<div>");
-//adds css class to column
-newTimeColumn.addClass("col-md-12 time-block");
-//appends column to row
-newRow.append(newTimeColumn);
-
-//creates time block
+//creates hour block
 var timeBlock = $("<div>");
 //adds css class to time block for hour
-timeBlock.addClass("hour float-left");
+timeBlock.addClass("hour col-md-1");
 //sets text to the time of the block
 timeBlock.text(timeArr[i]);
-//appends the hour to the time block
-newTimeColumn.append(timeBlock);
+//appends the hour to the time block row
+newRow.append(timeBlock);
 
 //creates text area box
 var newTextArea = $("<textarea>");
 //adds css class to text box
-newTextArea.addClass("description");
+newTextArea.addClass("description col-md-10");
 //assigns time data attribute
 newTextArea.attr("data-time", timeCheckArr[i]);
-//appends textarea to the time block
-newTimeColumn.append(newTextArea);
+//appends textarea to the time block row
+newRow.append(newTextArea);
 
 //creates save button
 var saveButton = $("<button>");
 //creates save icon
 var saveIcon = $("<i>");
 //adds css class to text box
-saveButton.addClass("saveBtn float-right");
+saveButton.addClass("saveBtn col-md-1");
 //adds css class to save icon
 saveIcon.addClass("fas fa-save");
-//appends save button to the time block
-newTimeColumn.append(saveButton);
+//appends save button to the time block row
+newRow.append(saveButton);
 //appends save icon to the save button
 saveButton.append(saveIcon);
 
