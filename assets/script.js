@@ -1,4 +1,4 @@
-//creates array for time
+//creates array for time to be written out as user-friendly strings
 var timeArr = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 //creates array so we can check the time
 var timeCheckArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
